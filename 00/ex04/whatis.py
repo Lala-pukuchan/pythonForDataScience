@@ -6,17 +6,18 @@ def whatis(object: any):
 	else:
 		print("I'm Odd.\n")
 
-if __name__ == "__main__":
+try:
 	if len(sys.argv) == 1:
 		print("")
 		sys.exit(1)
 	if len(sys.argv) > 2:
-		print("AssertionError: more than one argument is provided\n")
-		sys.exit(1)
+		raise AssertionError("more than one argument is provided\n")
 
 	try:
 		number = int(sys.argv[1])
 		whatis(number)
 	except ValueError:
-		print("AssertionError: argument is not an integer.\n")
-		sys.exit(1)
+		raise AssertionError("argument is not an integer.\n")
+
+except AssertionError as error:
+	print(AssertionError.__name__ + ":", error)
