@@ -3,20 +3,22 @@ from ft_filter import ft_filter
 
 
 def main():
+    '''
+    split the args into the array of string
+    if length of string is longer than specified len, retrieve it
+    '''
     try:
-        if (len(sys.argv) > 3):
-            raise AssertionError("more than one argument is provided\n")
-        elif len(sys.argv) == 1:
-            str = input("What is the text to count?\n")
-            str += "\n"
-        else:
-            str = sys.argv[1]
-        length = int(sys.argv[2])
-        words = str.split()
-        ft_filter(lambda word: len(word) < length, words)
-        print(list(filter(lambda word: len(word) > length, words)))
-    except AssertionError as error:
-        print(AssertionError.__name__ + ":", error)
+        if (len(sys.argv) != 3):
+            raise AssertionError()
+        if not sys.argv[2].isdigit():
+            raise AssertionError()
+        s = sys.argv[1]
+        n = int(sys.argv[2])
+        array = s.split()
+        ft_filter(lambda w: len(array) < n, array)
+        print(list(filter(lambda w: len(w) > n, array)))
+    except AssertionError:
+        print(AssertionError.__name__ + ":the arguments are bad")
 
 
 if __name__ == "__main__":
