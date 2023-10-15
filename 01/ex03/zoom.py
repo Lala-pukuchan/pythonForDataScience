@@ -28,7 +28,9 @@ def ft_zoom(image_path: str) -> ndarray:
         if len(zoomed_img_array.shape) == 3:
             print(f"New shape after slicing: {zoomed_img_array.shape}")
         else:
-            print(f"New shape after slicing: {zoomed_img_array.shape} or ({zoomed_img_array.shape[0]}, {zoomed_img_array.shape[1]})")
+            print(f"New shape after slicing: {zoomed_img_array.shape} or "
+                  f"({zoomed_img_array.shape[0]}, "
+                  f"{zoomed_img_array.shape[1]})")
         return zoomed_img_array
     except FileNotFoundError:
         print(f"Error: {image_path} not found.")
