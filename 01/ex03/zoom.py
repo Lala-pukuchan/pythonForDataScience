@@ -1,10 +1,14 @@
 from PIL import Image
 from numpy import ndarray
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def ft_zoom(image_path: str) -> ndarray:
     '''
+    If you don't have matplotlib, run this command in your terminal:
+        pip3 install matplotlib
+
     This function zooms an image.
     '''
     try:
@@ -13,10 +17,13 @@ def ft_zoom(image_path: str) -> ndarray:
         start_x = 300
         start_y = 200
         end_x = 700
-        end_y = 700
+        end_y = 600
         zoomed_img_array = img_array[start_x:end_x, start_y:end_y]
         zoomed_img = Image.fromarray(zoomed_img_array)
         zoomed_img.save("zoomed_img.jpg")
+        im = Image.open("zoomed_img.jpg")
+        plt.imshow(im)
+        plt.show()
         if len(zoomed_img_array.shape) == 3:
             print(f"New shape after slicing: {zoomed_img_array.shape}")
         else:
@@ -26,6 +33,8 @@ def ft_zoom(image_path: str) -> ndarray:
         print(f"Error: {image_path} not found.")
     except OSError:
         print(f"Error: {image_path} is not a valid image file.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 def main():
