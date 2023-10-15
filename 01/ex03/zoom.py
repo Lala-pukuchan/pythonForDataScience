@@ -2,6 +2,7 @@ from PIL import Image
 from numpy import ndarray
 import numpy as np
 import matplotlib.pyplot as plt
+from load_image import ft_load
 
 
 def ft_zoom(image_path: str) -> ndarray:
@@ -38,8 +39,8 @@ def ft_zoom(image_path: str) -> ndarray:
 
 
 def main():
-    img = ft_zoom("animal.jpeg")
-    print(img)
+    print(ft_load("animal.jpeg"))
+    print(ft_zoom("animal.jpeg"))
 
 
 if __name__ == "__main__":

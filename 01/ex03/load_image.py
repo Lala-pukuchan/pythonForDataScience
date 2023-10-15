@@ -20,12 +20,3 @@ def ft_load(image_path: str) -> ndarray:
         print(f"Error: {image_path} not found.")
     except OSError:
         print(f"Error: {image_path} is not a valid image file.")
-
-
-def main():
-    img = ft_load("landscape.jpg")
-    print(img)
-
-
-if __name__ == "__main__":
-    main()
