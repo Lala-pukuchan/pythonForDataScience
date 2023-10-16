@@ -1,21 +1,14 @@
-import numpy as np
-import csv
 import pandas as pd
 
 
-def load(path: str) -> np.ndarray:
+def load(path: str) -> pd.DataFrame:
     '''
     If you don't have pandas installed,
     pip3 install pandas
     This function loads a csv file and returns a numpy.ndarray.
     '''
     try:
-        df = pd.read_csv(path)
-        print(f"Loading dataset of dimensions"
-              f" {df.shape[0]} rows x {df.shape[1]} columns")
-        with open(path) as csvfile:
-            data = list(csv.reader(csvfile)).pop(1)
-        return data
+        return pd.read_csv(path)
     except FileNotFoundError:
         print("File not found")
         return None
