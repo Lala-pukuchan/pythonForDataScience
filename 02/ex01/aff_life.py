@@ -8,9 +8,22 @@ def aff_life(df, country: str) -> None:
     my campus located.
     '''
     try:
-        print(df.head())
-        print(df.head(0))
-        plt.plot()
+        # Get the data for the country
+        country_data = df[df["country"] == country]
+
+        # Get the years and life expectancy
+        years = country_data.columns[1:].tolist()
+        life_expectancy = country_data.iloc[0, 1:].tolist()
+
+        # Plot the data
+        plt.figure(figsize=(12, 6))
+        plt.plot(years, life_expectancy)
+        plt.xlabel('Year')
+        plt.ylabel('Life Expectancy')
+        plt.title(f'{country} Life Expectancy Projection')
+        plt.xticks(years[::40])
+        plt.show()
+
     except KeyError:
         print("Country or year not found")
 
