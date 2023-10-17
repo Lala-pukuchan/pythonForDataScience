@@ -29,7 +29,8 @@ class Stark(Character):
 
 
 def main():
-    print("Hello World")
+    Ned = Stark("Ned")
+    print(Ned.is_alive)
 
 
 if __name__ == '__main__':
