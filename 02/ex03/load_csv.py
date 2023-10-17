@@ -18,4 +18,3 @@ def load(path: str) -> pd.DataFrame:
     except ValueError:
         print("Value error")
         return None
-
