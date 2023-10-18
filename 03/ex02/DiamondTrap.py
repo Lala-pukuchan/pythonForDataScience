@@ -28,3 +28,12 @@ class King(Baratheon, Lannister):
 
     def get_hairs(self):
         return self.hairs
+
+
+def main():
+    Joffrey = King("Joffrey")
+    print(Joffrey.__dict__)
+
+
+if __name__ == '__main__':
+    main()

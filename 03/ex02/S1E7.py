@@ -66,12 +66,3 @@ class Lannister(Character):
         instance = cls(first_name)
         instance.is_alive = is_alive
         return instance
-
-
-def main():
-    Robert = Baratheon("Robert")
-    print(Robert.__dict__)
-
-
-if __name__ == '__main__':
-    main()
